@@ -1,5 +1,5 @@
 name: HalfOp
-version: '1.0'
+version: '1.1'
 main: me.egerke001.halfOp.HalfOp
 api-version: '1.21'
 description: HalfOp plugin that auto-updates itself from GitHub.

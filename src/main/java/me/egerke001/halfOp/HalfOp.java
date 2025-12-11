@@ -104,7 +104,10 @@ public final class HalfOp extends JavaPlugin {
                 return;
             }
 
-            if (latestVersion.equalsIgnoreCase(currentVersion)) {
+            String normalizedLatest = normalizeVersion(latestVersion);
+            String normalizedCurrent = normalizeVersion(currentVersion);
+
+            if (normalizedLatest != null && normalizedLatest.equalsIgnoreCase(normalizedCurrent)) {
                 getLogger().info("HalfOp is up to date (" + currentVersion + ").");
                 if (initiator != null) {
                     initiator.sendMessage("HalfOp is up to date (" + currentVersion + ").");
@@ -140,6 +143,15 @@ public final class HalfOp extends JavaPlugin {
                 initiator.sendMessage("An error occurred while checking for HalfOp updates. Check console for details.");
             }
         }
+    }
+
+    private static String normalizeVersion(String version) {
+        if (version == null) return null;
+        version = version.trim();
+        if (version.startsWith("v") || version.startsWith("V")) {
+            version = version.substring(1).trim();
+        }
+        return version;
     }
 
     private void downloadUpdate(String downloadUrl) throws IOException, InterruptedException {
