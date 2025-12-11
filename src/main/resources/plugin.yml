@@ -1,0 +1,17 @@
+name: HalfOp
+version: '1.0'
+main: me.egerke001.halfOp.HalfOp
+api-version: '1.21'
+description: HalfOp plugin that auto-updates itself from GitHub.
+author: Logicmouse29
+
+commands:
+  halfopupdate:
+    description: Manually check for and download the latest HalfOp update from GitHub.
+    usage: "/<command>"
+    permission: halfop.update
+
+permissions:
+  halfop.update:
+    description: Allows using the /halfopupdate command to manually check for updates.
+    default: op
